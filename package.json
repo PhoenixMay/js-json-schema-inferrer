@@ -1,12 +1,14 @@
 {
   "name": "json-schema-converter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "ts supported js object to json schema converter",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
+    "commit": "git-cz",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preVersion": "npm run lint",
@@ -17,8 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/PhoenixMay/json-schema-converter.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "json schema",
+    "converter"
+  ],
+  "author": "XuliangMei",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PhoenixMay/json-schema-converter/issues"
