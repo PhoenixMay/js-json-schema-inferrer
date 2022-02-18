@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "declaration": true,
+    "moduleResolution": "node", // 模块解决策略
+    "experimentalDecorators": true, // 开启装饰器定义
+    "allowSyntheticDefaultImports": true, // 允许es6方式import
     "outDir": "./lib",
     "strict": true
   },
