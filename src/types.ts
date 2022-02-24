@@ -1,6 +1,6 @@
 import { JSONSchema7Type, JSONSchema7TypeName } from 'json-schema'
-
-export const types: Record<JSONSchema7TypeName, Function> = {
+import { ValidateTypeFunc } from './typing'
+export const types: Record<JSONSchema7TypeName, ValidateTypeFunc> = {
   integer: function isInteger(instance: JSONSchema7Type) {
     return typeof instance === 'number' && instance % 1 === 0
   },
@@ -14,7 +14,9 @@ export const types: Record<JSONSchema7TypeName, Function> = {
     return Array.isArray(instance)
   },
   object: function isObject(instance: JSONSchema7Type) {
-    return instance && typeof instance === 'object' && !Array.isArray(instance)
+    return (
+      !!instance && typeof instance === 'object' && !Array.isArray(instance)
+    )
   },
   boolean: function isBoolean(instance: JSONSchema7Type) {
     return typeof instance === 'boolean'

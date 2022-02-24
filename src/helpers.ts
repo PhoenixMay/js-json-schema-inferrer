@@ -27,7 +27,7 @@ export const genSchema = (source: JSONSchema7Type): JSONSchema7 => {
   if (type === 'object') {
     // object
     const properties: SchemaProperties = {}
-    for (let [key, val] of Object.entries(source as JSONSchema7Object)) {
+    for (const [key, val] of Object.entries(source as JSONSchema7Object)) {
       properties[key] = genSchema(val)
     }
     resObj['properties'] = properties
