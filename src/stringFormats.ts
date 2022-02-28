@@ -35,7 +35,7 @@ export const FORMAT_REGEXPS: {
     // eslint-disable-line space-before-function-paren
     let result = true
     try {
-      new RegExp(input) // eslint-disable-line no-new
+      const temp = new RegExp(input) // eslint-disable-line no-new
     } catch (e) {
       result = false
     }
@@ -48,7 +48,7 @@ FORMAT_REGEXPS.regexp = FORMAT_REGEXPS.regex
 FORMAT_REGEXPS.pattern = FORMAT_REGEXPS.regex
 FORMAT_REGEXPS.ipv4 = FORMAT_REGEXPS['ip-address']
 
-export const isFormat = function isFormat(input: string, format: string) {
+export const isFormat = (input: string, format: string) => {
   if (typeof input === 'string' && FORMAT_REGEXPS[format] !== undefined) {
     if (FORMAT_REGEXPS[format] instanceof RegExp) {
       return FORMAT_REGEXPS[format].test(input)

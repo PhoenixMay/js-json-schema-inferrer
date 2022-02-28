@@ -65,7 +65,7 @@ export const genSchema = (
     if (config.object.allowAdditionalProperties !== undefined)
       resObj['additionalProperties'] = config.object.allowAdditionalProperties
   } else if (type === 'array') {
-    let mode = config.array.arrayInferMode
+    const mode = config.array.arrayInferMode
     /*array 
       default array validation mode: none 
       TODO: array anyOf mode
