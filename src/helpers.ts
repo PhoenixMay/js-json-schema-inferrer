@@ -79,6 +79,10 @@ export const genSchema = (
       )
       resObj['items'] = tupleSchema
     }
+    if (config.array.allowAdditionalItems !== undefined)
+      resObj['additionalItems'] = config.array.allowAdditionalItems
+    if (config.array.uniqueItems !== undefined)
+      resObj['uniqueItems'] = config.array.uniqueItems
   } else if (type === 'string' && !!config.string.detectFormat) {
     if (getFormat(source as string))
       resObj['format'] = getFormat(source as string)

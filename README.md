@@ -4,7 +4,9 @@ A ts based, fully typed inferrer which can convert js object to JSON schema. The
 
 ## Install
 
-` npm install js-json-schema-inferrer`
+```
+ npm install js-json-schema-inferrer
+```
 
 ## Basic Usage
 
@@ -39,9 +41,33 @@ interface InferrerConfig {
 
 ### ` StringOptions`
 
-- `detectFormat: boolean` : if true, the inferrer can detect each string's format regexp
+- `detectFormat: boolean` : if true, the inferrer can detect each string's format regexp.
 
 ### `ObjectOptions`
 
-- `required: boolean`: if true, make every property in the object required
-- `allowAdditionalProperties: boolean`: ...
+- `required: boolean`: if true, make every property in the object required.
+- `allowAdditionalProperties: boolean | undefined`: control if this object allows additional properties besides listed ones.
+
+### `ArrayOptions`
+
+- `arrayInferMode: 'first' | 'tuple'`:
+  - `'first'` means a kind of list validation, it uses the first item of the array to validate all the items.
+  - `tuple` means tuple validation. All the items in the array have their own validation schema.
+- `allowAdditionalItems: boolean | undefined`: control if this array allows additional properties.
+- `uniqueItems: boolean | undefined`: control if this array's items are unique.
+
+### `CommonConfig`
+
+- `title: boolean`: if true, display the title of each instance. Default `'The ${name} schema`
+- `description: boolean`: if true, display the description of each instance. Default `An explanation about the purpose of this instance.`
+- `default: boolean`: if true, make the source object's values be each instance's default value.
+- `examples: boolean`: if true, make origin values be example value.
+- `const: boolean`: if true, make origin values be const.
+- `enum: boolean`: if true, make origin values be the first element of enums.
+
+## TODOs
+
+1. Configure id inferring.
+2. Add more arrayInferMode, eg: `'anyOf'`
+3. Add tests.
+4. Add badges ;)
