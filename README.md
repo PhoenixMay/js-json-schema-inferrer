@@ -39,6 +39,22 @@ interface InferrerConfig {
 }
 ```
 
+Default config:
+
+```
+const defaultConfig: InferrerConfig = {
+  type: true,
+  string: {
+    detectFormat: false
+  },
+  object: {},
+  array: {
+    arrayInferMode: 'first'
+  },
+  common: {}
+}
+```
+
 ### ` StringOptions`
 
 - `detectFormat: boolean` : if true, the inferrer can detect each string's format regexp.
@@ -69,5 +85,6 @@ interface InferrerConfig {
 
 1. Configure id inferring.
 2. Add more arrayInferMode, eg: `'anyOf'`
-3. Add tests.
-4. Add badges ;)
+3. Update the string formats Regexps to suit draft-07
+4. Add tests.
+5. Add badges ;)
